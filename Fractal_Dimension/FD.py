@@ -122,6 +122,18 @@ def flipBowtie(srf_id, pts_for_srf, N2):
 
 # -----        Main          -----
 
+# ensure that there are six layers
+rs.AddLayer()
+rs.AddLayer()
+rs.AddLayer()
+rs.AddLayer()
+rs.AddLayer()
+rs.AddLayer()
+
+# ensure that "top" is the CPlane
+# plane = rs.WorldXYPlane()
+# rs.ViewCPlane(plane = plane)
+
 # get mesh ID from user 
 mesh_id = rs.GetObject(message="Select the reef mesh",
                            filter = 32, # mesh
@@ -195,7 +207,7 @@ for N2 in array_N2:
 # at end of script... 
 # print ln(srfArea) for each scale
 # print in one line, seperated by a comma
-print("ln(S(delta)) for deltas [1.2, .6, .3, .15, .05, .01] (m) resp.:")
+print("ln(S(delta)) for deltas " + str(array_N2) + " (m) resp.:")
 str_areas = "" 
 for i in range(0, len(list_srfArea)):
     ln_area = math.log(list_srfArea[i])
@@ -207,7 +219,7 @@ print(str_areas + "\n")
 # print D for each area group
 # e.g., for 1.60--0.80, 0.80--0.40, 0.40--0.20, 0.20--0.10, 0.10--0.05
 #   if array_N2 = [1.6, .8, .4, .2, .1, .05]
-print("D for for deltas [1.2, .6, .3, .15, .05, .01] (m) resp.: ") 			
+print("D for for deltas " + str(array_N2) + " (m) resp.: ") 			
 str_D = "" 
 for i in range(0, len(array_N2) - 1):
     num = math.log(list_srfArea[i]) - math.log(list_srfArea[i + 1])
@@ -216,9 +228,7 @@ for i in range(0, len(array_N2) - 1):
     str_D = str_D + str(D)
     if not i == len(array_N2) - 2:
         str_D = str_D + ", "
-print(str_D + "\n") 
-
-
+print(str_D) 
     
           
 
