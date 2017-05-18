@@ -68,7 +68,7 @@ def flipBowtie(srf_id, pts_for_srf, N2):
 
     if rs.SurfaceArea(proj_id)[0] < .75*(N2**2):
         [ptA1, ptB1, ptC1, ptD1] = pts_for_srf
-##        rs.DeleteObject(srf_id)
+        rs.DeleteObject(srf_id)
         srf_id = rs.AddSrfPt([ptB1, ptC1, ptD1, ptA1])
         rs.SelectObject(srf_id) # select surface 
         rs.Command("-_projecttocplane " + "Yes " + "-_Enter ")
