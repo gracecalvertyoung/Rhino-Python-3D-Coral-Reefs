@@ -74,42 +74,42 @@ def flipBowtie(srf_id, pts_for_srf, N2):
         rs.Command("-_projecttocplane " + "Yes " + "-_Enter ")
         proj_id = rs.GetObject(preselect=True)
         if rs.SurfaceArea(proj_id)[0] < .75*(N2**2):
-##            rs.DeleteObject(srf_id)
+            rs.DeleteObject(srf_id)
             pts_for_srf = [ptC1, ptD1, ptA1, ptB1]
             srf_id = rs.AddSrfPt([ptC1, ptD1, ptA1, ptB1])
             rs.SelectObject(srf_id) # select surface 
             rs.Command("-_projecttocplane " + "Yes " + "-_Enter ")
             proj_id = rs.GetObject(preselect=True)
             if rs.SurfaceArea(proj_id)[0] < .75*(N2**2):
- ##               rs.DeleteObject(srf_id)
+                rs.DeleteObject(srf_id)
                 pts_for_srf = [ptD1, ptA1, ptC1, ptC1]
                 srf_id = rs.AddSrfPt([ptD1, ptA1, ptC1, ptC1])
                 rs.SelectObject(srf_id) # select surface 
                 rs.Command("-_projecttocplane " + "Yes " + "-_Enter ")
                 proj_id = rs.GetObject(preselect=True)
                 if rs.SurfaceArea(proj_id)[0] < .75*(N2**2):
- ##                   rs.DeleteObject(srf_id)
+                    rs.DeleteObject(srf_id)
                     pts_for_srf = [ptA1, ptD1, ptC1, ptB1]
                     srf_id = rs.AddSrfPt([ptA1, ptD1, ptC1, ptB1])
                     rs.SelectObject(srf_id) # select surface 
                     rs.Command("-_projecttocplane " + "Yes " + "-_Enter ")
                     proj_id = rs.GetObject(preselect=True)
                     if rs.SurfaceArea(proj_id)[0] < .75*(N2**2):
- ##                       rs.DeleteObject(srf_id)
+                        rs.DeleteObject(srf_id)
                         pts_for_srf = [ptD1, ptC1, ptB1, ptA1]
                         srf_id = rs.AddSrfPt([ptD1, ptC1, ptB1, ptA1])
                         rs.SelectObject(srf_id) # select surface 
                         rs.Command("-_projecttocplane " + "Yes " + "-_Enter ")
                         proj_id = rs.GetObject(preselect=True)
                         if rs.SurfaceArea(proj_id)[0] < .75*(N2**2):
- ##                           rs.DeleteObject(srf_id)
+                            rs.DeleteObject(srf_id)
                             pts_for_srf = [ptC1, ptB1, ptA1, ptD1]
                             srf_id = rs.AddSrfPt([ptC1, ptB1, ptA1, ptD1])
                             rs.SelectObject(srf_id) # select surface 
                             rs.Command("-_projecttocplane " + "Yes " + "-_Enter ")
                             proj_id = rs.GetObject(preselect=True)
                             if rs.SurfaceArea(proj_id)[0] < .75*(N2**2):
- ##                               rs.DeleteObject(srf_id)
+                                rs.DeleteObject(srf_id)
                                 pts_for_srf = [ptB1, ptA1, ptD1, ptC1]
                                 srf_id = rs.AddSrfPt([ptB1, ptA1, ptD1, ptC1])
                                 rs.SelectObject(srf_id) # select surface 
@@ -131,11 +131,11 @@ rs.AddLayer()
 rs.AddLayer()
 
 # ensure that "top" is the CPlane
-# plane = rs.WorldXYPlane()
-# rs.ViewCPlane(plane = plane)
+# planeXY = rs.WorldXYPlane()
+# rs.ViewCPlane(view = None, plane = planeXY)
 
 # get mesh ID from user 
-mesh_id = rs.GetObject(message="Select the reef mesh",
+mesh_id = rs.GetObject(message="Select the reef mesh. Remember to select from TOP viewport.",
                            filter = 32, # mesh
                            preselect = False, 
                            select = False)
