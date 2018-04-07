@@ -6,10 +6,13 @@ import math
 # ASSUMTION: corner ptA of quadrat is sitting at origin
 # ASSUMTION: All of model is in positive z coordinate quadrant I 
 # ASSUMTION: "Top" plane is selected
+# ASSUMPTION: Document units are METERS
+
+# change this line depending on quadrat size
+array_N2 = [1.2, .6, .3, .15, .05, .01] # units meters
 
 pt_origin = [0, 0, 10]
 start = [pt_origin[0] + .05, pt_origin[1] + .05, pt_origin[2]]
-array_N2 = [1.2, .6, .3, .15, .05, .01]
 end_x = start[0] + array_N2[0] 
 end_y = start[1] + array_N2[0] 
 
