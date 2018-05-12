@@ -9,6 +9,9 @@ import math
 # ASSUMPTION: Document units are METERS
 
 # change this line depending on quadrat size
+# each number should be divisible by the smaller numbers
+# e.g., [1.2, .6, .3, .15] and [1, .5, .25] are okay
+# but [1.2, .5, .2] and [.8, .5, .3] are not okay
 array_N2 = [1.2, .6, .3, .15, .05, .01] # units meters
 
 pt_origin = [0, 0, 10]
@@ -125,13 +128,9 @@ def flipBowtie(srf_id, pts_for_srf, N2):
 
 # -----        Main          -----
 
-# ensure that there are six layers
-rs.AddLayer()
-rs.AddLayer()
-rs.AddLayer()
-rs.AddLayer()
-rs.AddLayer()
-rs.AddLayer()
+# ensure that there are enough layers
+for n in range(0, len(array_N2)+1): 
+    rs.AddLayer(name="Layer 0" + str(n))
 
 # ensure that "top" is the CPlane
 # planeXY = rs.WorldXYPlane()
