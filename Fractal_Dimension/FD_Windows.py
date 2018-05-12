@@ -2,17 +2,17 @@ import Rhino
 import rhinoscriptsyntax as rs
 import math
 
-# -----  Initalize Variables -----
-# ASSUMTION: corner ptA of quadrat is sitting at origin
-# ASSUMTION: All of model is in positive z coordinate quadrant I 
-# ASSUMTION: "Top" plane is selected
+# -----  Initialize Variables -----
+# ASSUMPTION: corner ptA of quadrat is sitting at origin
+# ASSUMPTION: All of model is in positive z coordinate quadrant I 
+# ASSUMPTION: "Top" plane is selected
 # ASSUMPTION: Document units are METERS
 
 # change this line depending on quadrat size
 # each number should be divisible by the smaller numbers
 # e.g., [1.2, .6, .3, .15] and [1, .5, .25] are okay
 # but [1.2, .5, .2] and [.8, .5, .3] are not okay
-array_N2 = [1.2, .6, .3, .15, .05, .01] # units meters
+array_N2 = [1.2, .6, .3, .15, .05] # units meters
 
 pt_origin = [0, 0, 10]
 start = [pt_origin[0] + .05, pt_origin[1] + .05, pt_origin[2]]
